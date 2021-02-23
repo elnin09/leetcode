@@ -83,5 +83,29 @@
     
     /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/*
+https://leetcode.com/problems/merge-two-binary-trees/solution/
 
+Merge two trees together
+*/
 
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) 
+    {
+       if(root1 == nullptr && root2 == nullptr) return nullptr;
+       
+
+       
+        if(root1==nullptr){ return root2;}
+        else if(root2==nullptr){return root1;}
+        else
+        {
+            TreeNode* newNode = new TreeNode();
+            newNode->val = root1->val+root2->val;
+            newNode->left = mergeTrees(root1->left,root2->left);
+            newNode->right = mergeTrees(root1->right,root2->right);
+            return newNode;
+        }
+        
+        return nullptr;
+        
+    }
