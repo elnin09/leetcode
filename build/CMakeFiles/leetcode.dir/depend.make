@@ -3,6 +3,8 @@
 
 CMakeFiles/leetcode.dir/leetcode.cpp.o: ../bits/stdc++.h
 CMakeFiles/leetcode.dir/leetcode.cpp.o: ../leetcode.cpp
+CMakeFiles/leetcode.dir/leetcode.cpp.o: ../majorityelement.cpp
 CMakeFiles/leetcode.dir/leetcode.cpp.o: ../maximumgold.cpp
+CMakeFiles/leetcode.dir/leetcode.cpp.o: ../movezeros.cpp
 CMakeFiles/leetcode.dir/leetcode.cpp.o: ../tree.cpp
 

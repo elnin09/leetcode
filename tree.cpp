@@ -40,6 +40,7 @@
         return retval;
             
     }
+    
     /* Second approach to find right side view*/
      vector<int> rightSideView2(TreeNode* root) 
     {

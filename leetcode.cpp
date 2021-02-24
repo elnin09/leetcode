@@ -1,6 +1,9 @@
 #include "bits/stdc++.h"
 #include "maximumgold.cpp"
 #include "tree.cpp"
+#include "majorityelement.cpp"
+#include "movezeros.cpp"
+
 using namespace std;
 
 
