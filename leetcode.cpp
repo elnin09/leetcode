@@ -3,7 +3,7 @@
 #include "tree.cpp"
 #include "majorityelement.cpp"
 #include "movezeros.cpp"
-
+#include "finddisappearednumbers.cpp"
 using namespace std;
 
 
