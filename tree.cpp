@@ -4,9 +4,10 @@
       int val;
       TreeNode *left;
       TreeNode *right;
-      TreeNode() : val(0), left(nullptr), right(nullptr) {}
-      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+      TreeNode *next;
+      TreeNode() : val(0), left(nullptr), right(nullptr), next(nullptr) {}
+      TreeNode(int x) : val(x), left(nullptr), right(nullptr), next(nullptr) {}
+      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right), next(nullptr) {}
   };
 
 
@@ -108,4 +109,84 @@ Merge two trees together
         
         return nullptr;
         
+    }
+
+    /*
+    https://leetcode.com/problems/maximum-depth-of-binary-tree/
+    A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+    */
+
+    int maxDepth(TreeNode* root) 
+    {
+      if(root==nullptr)return 0;
+      return 1+max(maxDepth(root->left),maxDepth(root->right));
+        
+    }
+
+   /*
+   https://leetcode.com/problems/invert-binary-tree/
+   Invert a binary tree
+   */
+
+
+    TreeNode* invertTree(TreeNode* root) 
+    { 
+        if(root == nullptr)
+            return root;
+        invertTree(root->left);
+        invertTree(root->right);
+        TreeNode* temp;
+        temp = root->right;
+        root->right = root->left;
+        root->left = temp;
+        return root;
+    }
+
+
+    /*
+    https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+
+    Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+    Use two queues to migrate to next levels
+    */
+
+    
+   TreeNode*connect(TreeNode* root) 
+    {
+        if(root==nullptr) return root;
+        
+       TreeNode*prev;
+        queue<TreeNode*> l1;
+        queue<TreeNode*> l2;
+        
+        l1.push(root);
+        
+        while(!(l1.empty() && l2.empty()))
+        {
+          prev = nullptr;
+          while(!l1.empty())
+          {
+            TreeNode*front = l1.front();
+             front->next = prev;
+             l1.pop();
+             prev = front;
+             if(front->right!=nullptr){l2.push(front->right);}
+             if(front->left!=nullptr) {l2.push(front->left);}   
+          }
+           
+          prev = nullptr;  
+          while(!l2.empty())
+          {
+            TreeNode*front = l2.front();
+             front->next = prev;
+             l2.pop();
+             prev = front;
+             if(front->right!=nullptr){l1.push(front->right);}
+             if(front->left!=nullptr) {l1.push(front->left);}    
+              
+          }
+            
+        }
+        
+        return root;
     }
