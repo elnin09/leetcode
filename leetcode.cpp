@@ -4,6 +4,8 @@
 #include "majorityelement.cpp"
 #include "movezeros.cpp"
 #include "finddisappearednumbers.cpp"
+#include "maxProfit.cpp"
+#include "climbstairs.cpp"
 using namespace std;
 
 
